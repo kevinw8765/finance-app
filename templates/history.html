@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <table class = "table" >
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr class = "table-secondary">
+                    <td>{{row["symbol"]}}</td>
+                    <td>{{row["history"]}}</td>
+                    <td>{{row["amount"]}}</td>
+                    <td>{{ row["year"] }}-{{ row["month"] }}-{{ row["day"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
